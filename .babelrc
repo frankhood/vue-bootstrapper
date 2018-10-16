@@ -1,0 +1,47 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env"
+        ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-parameters",
+        "@babel/plugin-transform-destructuring",
+        "@babel/plugin-transform-spread",
+        "@babel/plugin-transform-shorthand-properties"
+      ],
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": false,
+            "targets": {
+              "browsers": [
+                "> 1%",
+                "last 2 versions",
+                "not ie <= 8"
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
