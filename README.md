@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-npm install --save {{ name }}
+npm install --save vue-bootstrapper
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ You can also override default options when installing it
 Vue.use(VueBootstrapper, {
   option: '...'
 })
-``` 
+```
 
 The plugin exposes a global `$context` object that can be accessed from any part of the application.
 

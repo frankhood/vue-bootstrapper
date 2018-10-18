@@ -1,7 +1,7 @@
 {
   "name": "vue-bootstrapper",
-  "version": "0.0.1",
-  "repository": "",
+  "version": "0.0.2",
+  "repository": "https://github.com/frankhood/vue-bootstrapper",
   "description": "A teeny-weeny Vue.js plugin for passing backend context to your frontend",
   "author": "Frankhood Business Solutions <info@frankhood.it>",
   "main": "dist/vue-bootstrapper.min.js",
