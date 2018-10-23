@@ -31,6 +31,60 @@ Vue.use(VueBootstrapper, {
 
 The plugin exposes a global `$context` object that can be accessed from any part of the application.
 
+To populate the `$context` you just need to pass `data-*` attributes to the root instance mountpoint, such as
+
+```html
+<div
+  id="vue-root"
+  data-some-string="To the Batmobile!"
+>
+  ...
+</div>
+```
+
+This will result in
+
+```js
+$vm.$context = {
+  someString: 'To the Batmobile!'
+}
+```
+
+You can seamlessly pass numbers or JSON data as well:
+
+```html
+<div
+  id="vue-root"
+  data-some-number="42"
+  data-some-object='{
+    "firstApiUrl": "/api/v1/firstApi",
+    "secondApiUrl": "/api/v1/secondApi",
+    "thirdApiUrls": {
+      "a": "/api/v1/thirdA",
+      "b": "/api/v1/thirdB"
+    }
+  }'
+>
+  ...
+</div>
+```
+
+That will result in
+
+```js
+$vm.$context = {
+  someNumber: 42,
+  someObject: {
+    firstApiUrl: '/api/v1/firstApi',
+    secondApiUrl: '/api/v1/secondApi',
+    thirdApiUrls: {
+      a: '/api/v1/thirdA',
+      b: '/api/v1/thirdB'
+    }
+  }
+}
+```
+
 ## Development
 
 ### Launch webpack dev server
@@ -61,4 +115,4 @@ TODO
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[BSD](https://opensource.org/licenses/BSD-3-Clause)
