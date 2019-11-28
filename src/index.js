@@ -24,7 +24,7 @@ const VueBootstrapper = {
           this.$context[key] = value;
         }
       });
-      this.$store.commit('vueBootstrapper/SET_READY_STATE',true)
+      this.$store.commit('vueBootstrapper/SET_READY_STATE')
     };
 
     // Call $getContext before the root instance is mounted
