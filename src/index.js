@@ -2,7 +2,7 @@ import storeModule from './store'
 require('./dataset_shim');
 
 const VueBootstrapper = {
-  install(Vue) {
+  install(Vue,options) {
     if (!options || !options.store) {
       throw new Error('Vue Bootstrapper: please, provide a Vuex store in the options object')
     }
