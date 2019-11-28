@@ -1,7 +1,12 @@
+import storeModule from './store'
 require('./dataset_shim');
 
 const VueBootstrapper = {
-  install(Vue) {
+  install(Vue,options) {
+    if (!options || !options.store) {
+      throw new Error('Vue Bootstrapper: please, provide a Vuex store in the options object')
+    }
+    options.store.registerModule('vueBootstrapper', storeModule)
     // Initialize an empty $context object
     Vue.prototype.$context = {};
 
@@ -19,6 +24,7 @@ const VueBootstrapper = {
           this.$context[key] = value;
         }
       });
+      this.$store.commit('vueBootstrapper/SET_READY_STATE')
     };
 
     // Call $getContext before the root instance is mounted

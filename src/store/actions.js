@@ -1,0 +1,4 @@
+/* Import dependencies */
+
+export default {
+}
