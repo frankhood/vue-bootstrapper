@@ -6,7 +6,7 @@ const VueBootstrapper = {
     if (!options || !options.store) {
       throw new Error('Vue Bootstrapper: please, provide a Vuex store in the options object')
     }
-    options.store.registerModule('vueBootstrapper', viewportStoreModule)
+    options.store.registerModule('vueBootstrapper', storeModule)
     // Initialize an empty $context object
     Vue.prototype.$context = {};
 
