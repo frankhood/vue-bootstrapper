@@ -24,14 +24,14 @@ const VueBootstrapper = {
           this.$context[key] = value;
         }
       });
-      this.$store.commit('vueBootstrapper/SET_READY_STATE')
     };
 
     // Call $getContext before the root instance is mounted
     Vue.mixin({
       beforeMount() {
-        if (!this.$parent) {
-          this.$getContext();
+        if (!this.$store.state.vueBootstrapper.ready) {
+          this.$root.$getContext();
+          this.$store.commit('vueBootstrapper/SET_READY_STATE')
         }
       }
     });
