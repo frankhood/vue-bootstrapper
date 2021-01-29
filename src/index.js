@@ -12,18 +12,20 @@ const VueBootstrapper = {
 
     // Populate the $context object from the root $el data set
     Vue.prototype.$getContext = function $getContext() {
-      const $el = this.$el;
-      const dataKeys = Object.keys($el.dataset);
+      if(this.$el){
+        const $el = this.$el;
+        const dataKeys = Object.keys($el.dataset);
 
-      dataKeys.forEach((key) => {
-        const value = $el.dataset[key];
+        dataKeys.forEach((key) => {
+          const value = $el.dataset[key];
 
-        try {
-          this.$context[key] = JSON.parse(value);
-        } catch (e) {
-          this.$context[key] = value;
-        }
-      });
+          try {
+            this.$context[key] = JSON.parse(value);
+          } catch (e) {
+            this.$context[key] = value;
+          }
+        });
+      }
     };
 
     // Call $getContext before the root instance is mounted
