@@ -34,7 +34,7 @@ const VueBootstrapper = {
         //add a check to verify the store availability.
         //If externally somebody instances a new vue without the store (ui-element library for example)
         //this can cause an error
-        if (this.$store.state && !this.$store.state.vueBootstrapper.ready) {
+        if (this.$store && !this.$store.state.vueBootstrapper.ready) {
           this.$root.$getContext();
           this.$store.commit('vueBootstrapper/SET_READY_STATE')
         }
